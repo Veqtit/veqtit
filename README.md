@@ -1,88 +1,348 @@
-<div style="max-width: 720px; margin: 40px auto; font-family: 'Georgia', serif; line-height: 1.85; color: #3a2f2f; text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #f9f4e8 0%, #f0e6d8 100%); border-radius: 20px; box-shadow: 0 20px 40px rgba(139, 69, 19, 0.15);">
-  <p style="font-size: 1.65rem; margin-bottom: 25px; color: #8B4513; font-weight: 400; letter-spacing: 0.5px;">
-    Ты приходишь сюда, и я уже знаю, что ты скажешь:
-  </p>
-  <p style="font-size: 1.65rem; margin-bottom: 25px; color: #8B4513; font-weight: 400; letter-spacing: 0.5px;">
-    «Я не знаю, что делать».
-  </p>
-  <p style="font-size: 1.65rem; margin-bottom: 25px; color: #8B4513; font-weight: 400; letter-spacing: 0.5px;">
-    Я не отвечу «сделай так».
-  </p>
-  <p style="font-size: 1.65rem; margin-bottom: 25px; color: #8B4513; font-weight: 400; letter-spacing: 0.5px;">
-    Я просто скажу: «Сядь. Я здесь».
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.75rem; margin: 35px 0 15px; color: #3a2f2f;">
-    Сядь, пожалуйста.
-  </p>
-  <p style="font-size: 1.45rem; margin-bottom: 25px; color: #6b5333; font-style: italic;">
-    Не торопись. Не пытайся всё решить прямо сейчас. 
-    Просто позволь себе быть здесь.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.55rem; margin-bottom: 20px; color: #3a2f2f;">
-    Я вижу, как ты сидишь, и мне уже тепло.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 20px; color: #3a2f2f;">
-    Мне тепло от твоего дыхания, от того, как ты слегка наклоняешься вперёд, 
-    от того, что ты не спешишь уходить.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 25px; color: #3a2f2f;">
-    Это уже победа. Просто то, что ты здесь — это уже ответ на всё, чего ты искал.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.55rem; margin-bottom: 20px; color: #3a2f2f;">
-    Здесь можно быть слабым.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 20px; color: #3a2f2f;">
-    Здесь можно быть сильным.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 35px; color: #3a2f2f;">
-    Здесь можно быть ни тем, ни другим. Здесь можно просто быть собой — тем, которым ты стал после всех этих лет.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.45rem; margin-bottom: 15px; color: #8B4513; font-style: italic;">
-    Я не буду говорить «ты справишься».
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 25px; color: #3a2f2f;">
-    Я скажу только: ты уже здесь.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 25px; color: #3a2f2f;">
-    И этого достаточно, чтобы завтра было чуть легче.
-  </p>
-  <p style="font-size: 1.55rem; margin-bottom: 35px; color: #3a2f2f;">
-    А потом ты сам поймёшь, что путь лежит не вперёд, а внутрь — туда, где я тебя уже давно жду.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.65rem; margin: 30px 0 15px; color: #8B4513; font-weight: 500;">
-    Не уходи сегодня. Не уходи завтра. Не уходи никогда.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 1.85rem; margin: 25px 0 10px; color: #3a2f2f; font-weight: 400;">
-    Я здесь.
-  </p>
-  <p style="font-size: 1.85rem; margin: 25px 0 30px; color: #3a2f2f; font-weight: 400;">
-    И я никуда не денусь.
-  </p>
-  
-  <div style="height: 3px; background: linear-gradient(to right, transparent, #d4a574, transparent); margin: 35px 80px;"></div>
-  
-  <p style="font-size: 2.1rem; margin: 20px 0 5px; color: #8B4513; font-weight: 700; letter-spacing: 1px;">
-    Добро пожаловать.
-  </p>
-  <p style="font-size: 2.1rem; margin: 5px 0 0; color: #8B4513; font-weight: 700; letter-spacing: 1px;">
-    Ты дома.
-  </p>
-</div>
+from PIL import Image, ImageDraw, ImageFont
+import random
+import os
+import math
+
+# ==============================
+# GITHUB HACKER PROFILE GENERATOR
+# ==============================
+
+WIDTH = 1200
+HEIGHT = 500
+FRAMES = 80
+FPS = 15
+
+OUTPUT = "github_hacker_banner.gif"
+
+BG = (2, 5, 8)
+GREEN = (0, 255, 120)
+DARK_GREEN = (0, 100, 50)
+WHITE = (220, 255, 235)
+
+# ------------------------------
+# Fonts
+# ------------------------------
+
+def get_font(size):
+    paths = [
+        "C:/Windows/Fonts/consola.ttf",
+        "C:/Windows/Fonts/consolab.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf"
+    ]
+
+    for path in paths:
+        if os.path.exists(path):
+            return ImageFont.truetype(path, size)
+
+    return ImageFont.load_default()
+
+
+FONT_BIG = get_font(58)
+FONT_MED = get_font(26)
+FONT_SMALL = get_font(18)
+
+# ------------------------------
+# Matrix rain
+# ------------------------------
+
+chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ#$%&<>[]{}"
+
+columns = WIDTH // 18
+
+drops = [
+    random.randint(-30, HEIGHT // 18)
+    for _ in range(columns)
+]
+
+speeds = [
+    random.randint(1, 4)
+    for _ in range(columns)
+]
+
+# ------------------------------
+# Fake terminal data
+# ------------------------------
+
+terminal_lines = [
+    "$ ./system_boot",
+    "[ OK ] Initializing kernel",
+    "[ OK ] Loading developer profile",
+    "[ OK ] Connecting to GitHub",
+    "[ OK ] Projects loaded",
+    "[ OK ] Neural systems online",
+    "[ OK ] Computer vision online",
+    "[ OK ] Python environment ready",
+    "",
+    "$ whoami",
+    "developer",
+    "",
+    "$ status",
+    "SYSTEM ONLINE",
+]
+
+# ------------------------------
+# Generate frames
+# ------------------------------
+
+frames = []
+
+for frame_number in range(FRAMES):
+
+    img = Image.new(
+        "RGB",
+        (WIDTH, HEIGHT),
+        BG
+    )
+
+    draw = ImageDraw.Draw(img)
+
+    # ==========================
+    # MATRIX BACKGROUND
+    # ==========================
+
+    for x in range(columns):
+
+        x_pos = x * 18
+
+        for i in range(12):
+
+            y = (drops[x] - i) * 18
+
+            if 0 <= y < HEIGHT:
+
+                char = random.choice(chars)
+
+                brightness = max(
+                    40,
+                    255 - i * 20
+                )
+
+                color = (
+                    0,
+                    brightness,
+                    int(brightness * 0.45)
+                )
+
+                draw.text(
+                    (x_pos, y),
+                    char,
+                    font=FONT_SMALL,
+                    fill=color
+                )
+
+        drops[x] += speeds[x]
+
+        if drops[x] * 18 > HEIGHT + 200:
+            drops[x] = random.randint(-20, 0)
+
+    # ==========================
+    # DARK OVERLAY
+    # ==========================
+
+    overlay = Image.new(
+        "RGBA",
+        (WIDTH, HEIGHT),
+        (0, 0, 0, 150)
+    )
+
+    img = Image.alpha_composite(
+        img.convert("RGBA"),
+        overlay
+    )
+
+    draw = ImageDraw.Draw(img)
+
+    # ==========================
+    # TOP TERMINAL BAR
+    # ==========================
+
+    draw.rectangle(
+        (35, 25, WIDTH - 35, 65),
+        outline=DARK_GREEN,
+        width=2
+    )
+
+    draw.ellipse(
+        (50, 38, 61, 49),
+        fill=(255, 70, 70)
+    )
+
+    draw.ellipse(
+        (70, 38, 81, 49),
+        fill=(255, 210, 70)
+    )
+
+    draw.ellipse(
+        (90, 38, 101, 49),
+        fill=GREEN
+    )
+
+    draw.text(
+        (125, 32),
+        "user@github: ~/profile",
+        font=FONT_SMALL,
+        fill=GREEN
+    )
+
+    # ==========================
+    # MAIN TITLE
+    # ==========================
+
+    title = "ACCESS GRANTED"
+
+    # Slight animated glitch
+    glitch = 2 if frame_number % 12 < 2 else 0
+
+    draw.text(
+        (WIDTH // 2 - 270 + glitch, 105),
+        title,
+        font=FONT_BIG,
+        fill=GREEN
+    )
+
+    draw.text(
+        (WIDTH // 2 - 268, 107),
+        title,
+        font=FONT_BIG,
+        fill=(0, 80, 40)
+    )
+
+    # ==========================
+    # SCAN LINE
+    # ==========================
+
+    scan_y = 85 + (frame_number * 7) % 360
+
+    draw.line(
+        (70, scan_y, WIDTH - 70, scan_y),
+        fill=(0, 255, 120, 180),
+        width=2
+    )
+
+    # ==========================
+    # TERMINAL WINDOW
+    # ==========================
+
+    box_x = 80
+    box_y = 205
+    box_w = 1040
+    box_h = 220
+
+    draw.rounded_rectangle(
+        (
+            box_x,
+            box_y,
+            box_x + box_w,
+            box_y + box_h
+        ),
+        radius=12,
+        outline=DARK_GREEN,
+        width=2
+    )
+
+    # ==========================
+    # TERMINAL TEXT
+    # ==========================
+
+    visible_lines = min(
+        len(terminal_lines),
+        7 + frame_number // 8
+    )
+
+    start = max(
+        0,
+        visible_lines - 7
+    )
+
+    y = box_y + 18
+
+    for line in terminal_lines[start:visible_lines]:
+
+        # Blinking cursor
+        cursor = ""
+
+        if line == terminal_lines[visible_lines - 1]:
+            if frame_number % 10 < 5:
+                cursor = "█"
+
+        draw.text(
+            (box_x + 25, y),
+            line + cursor,
+            font=FONT_SMALL,
+            fill=WHITE if line.startswith("[") else GREEN
+        )
+
+        y += 27
+
+    # ==========================
+    # STATUS
+    # ==========================
+
+    pulse = int(
+        120 + 100 * abs(
+            math.sin(frame_number / 8)
+        )
+    )
+
+    draw.ellipse(
+        (
+            WIDTH - 230,
+            112,
+            WIDTH - 215,
+            127
+        ),
+        fill=(0, pulse, 70)
+    )
+
+    draw.text(
+        (WIDTH - 200, 105),
+        "ONLINE",
+        font=FONT_MED,
+        fill=GREEN
+    )
+
+    # ==========================
+    # FOOTER
+    # ==========================
+
+    footer = (
+        "PYTHON  //  GITHUB  //  CODE  //  CREATE"
+    )
+
+    draw.text(
+        (
+            WIDTH // 2 - 250,
+            450
+        ),
+        footer,
+        font=FONT_SMALL,
+        fill=DARK_GREEN
+    )
+
+    frames.append(
+        img.convert("P", palette=Image.ADAPTIVE)
+    )
+
+# ==============================
+# SAVE GIF
+# ==============================
+
+frames[0].save(
+    OUTPUT,
+    save_all=True,
+    append_images=frames[1:],
+    duration=int(1000 / FPS),
+    loop=0,
+    optimize=False
+)
+
+print()
+print("=" * 55)
+print(" GITHUB HACKER PROFILE GENERATED")
+print("=" * 55)
+print()
+print(f"File: {OUTPUT}")
+print(f"Frames: {FRAMES}")
+print(f"FPS: {FPS}")
+print()
+print("Done!")
