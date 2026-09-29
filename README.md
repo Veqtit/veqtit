@@ -1,1 +1,192 @@
 
+import os
+import time
+import random
+
+WIDTH = 50
+HEIGHT = 18
+
+DELAY = 0.08
+MAX_TURNS = 10
+
+snake = [(5, 8), (4, 8), (3, 8)]
+direction = (1, 0)
+
+turns = 0
+score = 0
+
+directions = [
+    (1, 0),   # →
+    (0, 1),   # ↓
+    (-1, 0),  # ←
+    (0, -1)   # ↑
+]
+
+
+def clear():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def new_food():
+    while True:
+        food = (
+            random.randint(2, WIDTH - 3),
+            random.randint(2, HEIGHT - 3)
+        )
+
+        if food not in snake:
+            return food
+
+
+food = new_food()
+
+direction_index = 0
+next_turn = random.randint(8, 18)
+
+
+while True:
+
+    # -----------------------------
+    # Движение
+    # -----------------------------
+
+    head_x, head_y = snake[0]
+    dx, dy = direction
+
+    new_head = (
+        head_x + dx,
+        head_y + dy
+    )
+
+    # -----------------------------
+    # Проверка столкновения
+    # -----------------------------
+
+    if (
+        new_head[0] <= 0
+        or new_head[0] >= WIDTH - 1
+        or new_head[1] <= 0
+        or new_head[1] >= HEIGHT - 1
+        or new_head in snake
+    ):
+        break
+
+    snake.insert(0, new_head)
+
+    # -----------------------------
+    # Съела шарик
+    # -----------------------------
+
+    if new_head == food:
+        score += 1
+        food = new_food()
+
+    else:
+        snake.pop()
+
+    # -----------------------------
+    # Случайный поворот
+    # -----------------------------
+
+    next_turn -= 1
+
+    if next_turn <= 0:
+
+        # Нельзя развернуться назад
+        possible = []
+
+        for i, d in enumerate(directions):
+
+            if (
+                d[0] == -direction[0]
+                and d[1] == -direction[1]
+            ):
+                continue
+
+            possible.append((i, d))
+
+        direction_index, direction = random.choice(possible)
+
+        turns += 1
+
+        next_turn = random.randint(7, 15)
+
+        # После 10 поворотов змейка умирает
+        if turns >= MAX_TURNS:
+            break
+
+    # -----------------------------
+    # Рендер
+    # -----------------------------
+
+    clear()
+
+    print("╔" + "═" * (WIDTH - 2) + "╗")
+
+    for y in range(HEIGHT):
+
+        line = "║"
+
+        for x in range(WIDTH):
+
+            if (x, y) == snake[0]:
+                line += "●"
+
+            elif (x, y) in snake:
+                line += "•"
+
+            elif (x, y) == food:
+                line += "◆"
+
+            else:
+                line += " "
+
+        line += "║"
+
+        print(line)
+
+    print("╚" + "═" * (WIDTH - 2) + "╝")
+
+    print()
+    print(f" SCORE : {score}")
+    print(f" TURNS : {turns}/{MAX_TURNS}")
+    print(" STATUS: ● ONLINE")
+
+    time.sleep(DELAY)
+
+
+# -----------------------------
+# СМЕРТЬ
+# -----------------------------
+
+clear()
+
+print("╔" + "═" * (WIDTH - 2) + "╗")
+
+for y in range(HEIGHT):
+
+    line = "║"
+
+    for x in range(WIDTH):
+
+        if y == HEIGHT // 2 and x == WIDTH // 2 - 4:
+            line += "GAME OVER"
+
+        else:
+            line += " "
+
+    line += "║"
+
+    print(line)
+
+print("╚" + "═" * (WIDTH - 2) + "╝")
+
+print()
+print(f"FINAL SCORE : {score}")
+print(f"TOTAL TURNS : {turns}")
+print()
+print("SYSTEM FAILURE...")
+time.sleep(2)
+
+print("RESTARTING...")
+time.sleep(1)
